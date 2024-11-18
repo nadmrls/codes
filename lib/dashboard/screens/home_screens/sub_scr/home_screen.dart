@@ -39,6 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void toggleOvertime() {
+    setState(() {
+      overtime = !overtime;
+    });
+  }
+
   void timein() {
     print('IN TIME: $_timeString');
     print('IN TIME: $_dateString');
