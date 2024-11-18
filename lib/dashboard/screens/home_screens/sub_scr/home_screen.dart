@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:personal_company/app/routes/app_routes.dart';
 import 'package:personal_company/app/utils/app_color.dart';
 import 'package:personal_company/app/utils/app_string.dart';
 import 'package:personal_company/app/utils/app_text_style.dart';
@@ -62,7 +63,9 @@ class _HomeScreenState extends State<HomeScreen> {
     print('REQUEST OT');
   }
 
-  void logout() {}
+  void logout(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.login_screen);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               LogoutContainer(
-                action: () => logout(),
+                action: () => logout(context),
               ),
               Container(
                 decoration: BoxDecoration(
