@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool timed_in = true;
   bool time_out = true;
   bool overtime = false;
+  bool darkmode = true;
 
   @override
   void initState() {
@@ -45,28 +46,34 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void toggleDarkMode() {
+    setState(() {
+      darkmode = !darkmode;
+    });
+  }
+
   void timein() {
-    print('IN TIME: $_timeString');
-    print('IN TIME: $_dateString');
+    debugPrint('IN TIME: $_timeString');
+    debugPrint('IN TIME: $_dateString');
   }
 
   void timeout() {
-    print('OUT TIME: $_timeString');
-    print('OUT DATE: $_dateString');
+    debugPrint('OUT TIME: $_timeString');
+    debugPrint('OUT DATE: $_dateString');
   }
 
   void timein_OT() {
-    print('IN TIME: $_timeString');
-    print('IN TIME: $_dateString');
+    debugPrint('IN TIME: $_timeString');
+    debugPrint('IN TIME: $_dateString');
   }
 
   void timeout_OT() {
-    print('OUT TIME: $_timeString');
-    print('OUT DATE: $_dateString');
+    debugPrint('OUT TIME: $_timeString');
+    debugPrint('OUT DATE: $_dateString');
   }
 
   void rqst() {
-    print('REQUEST OT');
+    debugPrint('REQUEST OT');
   }
 
   void logout(BuildContext context) {
@@ -81,7 +88,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               LogoutContainer(
+                action2: () => toggleDarkMode(),
                 action: () => logout(context),
+                screen_mode: Icon(
+                  darkmode ? Icons.dark_mode : Icons.light_mode,
+                  color: darkmode
+                      ? const Color.fromARGB(255, 243, 237, 219)
+                      : Colors.amber,
+                ),
               ),
               Container(
                 decoration: BoxDecoration(

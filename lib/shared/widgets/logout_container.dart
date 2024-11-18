@@ -6,7 +6,13 @@ import 'package:personal_company/app/utils/app_color.dart';
 
 class LogoutContainer extends StatefulWidget {
   final Function action;
-  const LogoutContainer({super.key, required this.action});
+  final Function action2;
+  final Icon screen_mode;
+  const LogoutContainer(
+      {super.key,
+      required this.action,
+      required this.screen_mode,
+      required this.action2});
 
   @override
   State<LogoutContainer> createState() => _LogoutContainerState();
@@ -38,12 +44,17 @@ class _LogoutContainerState extends State<LogoutContainer> {
     return Column(
       children: [
         Container(
+          padding: EdgeInsets.symmetric(horizontal: 10),
           color: AppColors.primaryColor,
           height: 40,
           width: double.infinity,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              IconButton(
+                onPressed: () => widget.action2(),
+                icon: widget.screen_mode,
+              ),
               IconButton(
                 onPressed: () => widget.action(),
                 icon: Icon(Icons.logout_rounded, color: Colors.white),
