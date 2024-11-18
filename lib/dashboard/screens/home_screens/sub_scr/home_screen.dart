@@ -301,6 +301,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColors.textFieldBG,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 1, color: Colors.black)),
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding: EdgeInsets.all(10),
+                width: double.infinity,
               )
             ],
           ),
