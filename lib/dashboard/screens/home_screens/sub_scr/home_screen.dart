@@ -53,6 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  void logout(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.login_screen);
+  }
+
   void timein() {
     debugPrint('IN TIME: $_timeString');
     debugPrint('IN TIME: $_dateString');
@@ -75,10 +79,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void rqst() {
     debugPrint('REQUEST OT');
-  }
-
-  void logout(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.login_screen);
   }
 
   void press1() {
