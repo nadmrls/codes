@@ -24,4 +24,9 @@ class AppStrings {
   static const String home_screen_text5 = 'Time In OT:';
   static const String home_screen_text6 = 'Time Out OT:';
   static const String home_screen_rqstOT = 'Request an over time:';
+
+  static const String custome_button_cont1 = 'Leave';
+  static const String custome_button_cont2 = "Issue's";
+  static const String custome_button_cont3 = 'Break';
+  static const String custome_button_cont4 = 'Payroll';
 }

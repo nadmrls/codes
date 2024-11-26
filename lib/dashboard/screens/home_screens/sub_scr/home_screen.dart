@@ -9,6 +9,7 @@ import 'package:personal_company/app/utils/app_string.dart';
 import 'package:personal_company/app/utils/app_text_style.dart';
 import 'package:personal_company/shared/widgets/logout_container.dart';
 import 'package:personal_company/shared/widgets/shared_button.dart';
+import 'package:personal_company/shared/widgets/shared_button_container.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -80,8 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
     Navigator.pushNamed(context, AppRoutes.login_screen);
   }
 
+  void press1() {
+    debugPrint('REQUEST OT');
+  }
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
         child: SingleChildScrollView(
@@ -322,8 +329,122 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(width: 1, color: Colors.black)),
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.symmetric(
+                    vertical: 10, horizontal: screenWidth < 540 ? 30 : 40),
                 width: double.infinity,
+                child: screenWidth < 540
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SharedButtonContainer(
+                                icon: Icon(
+                                  Icons.flight_takeoff_rounded,
+                                  size: 40,
+                                  color: Colors.grey,
+                                ),
+                                title: AppStrings.custome_button_cont1,
+                                onPressed: () => press1(),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              SharedButtonContainer(
+                                icon: Icon(
+                                  Icons.watch_later_rounded,
+                                  size: 40,
+                                  color: Colors.grey,
+                                ),
+                                title: AppStrings.custome_button_cont2,
+                                onPressed: () => press1(),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              SharedButtonContainer(
+                                icon: Icon(
+                                  Icons.local_cafe_rounded,
+                                  size: 40,
+                                  color: Colors.grey,
+                                ),
+                                title: AppStrings.custome_button_cont3,
+                                onPressed: () => press1(),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              SharedButtonContainer(
+                                icon: Icon(
+                                  Icons.attach_money_outlined,
+                                  size: 40,
+                                  color: Colors.grey,
+                                ),
+                                title: AppStrings.custome_button_cont4,
+                                onPressed: () => press1(),
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    : Row(
+                        children: [
+                          SharedButtonContainer(
+                            icon: Icon(
+                              Icons.flight_takeoff_rounded,
+                              size: 40,
+                              color: Colors.grey,
+                            ),
+                            title: AppStrings.custome_button_cont1,
+                            onPressed: () => press1(),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          SharedButtonContainer(
+                            icon: Icon(
+                              Icons.watch_later_rounded,
+                              size: 40,
+                              color: Colors.grey,
+                            ),
+                            title: AppStrings.custome_button_cont2,
+                            onPressed: () => press1(),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          SharedButtonContainer(
+                            icon: Icon(
+                              Icons.local_cafe_rounded,
+                              size: 40,
+                              color: Colors.grey,
+                            ),
+                            title: AppStrings.custome_button_cont3,
+                            onPressed: () => press1(),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          SharedButtonContainer(
+                            icon: Icon(
+                              Icons.attach_money_outlined,
+                              size: 40,
+                              color: Colors.grey,
+                            ),
+                            title: AppStrings.custome_button_cont4,
+                            onPressed: () => press1(),
+                          ),
+                        ],
+                      ),
               )
             ],
           ),
