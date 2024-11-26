@@ -37,7 +37,7 @@ class SharedButtonContainer extends StatelessWidget {
                   fontSize: 16,
                 ),
                 overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+                maxLines: 1,
               ),
             ],
           ),
